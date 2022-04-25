@@ -1,0 +1,15 @@
+{
+    "name": "p.gigel/mvc_framework_from_scratch_php",
+    "authors": [
+        {
+            "name": "Paul Gigel",
+            "email": "91072840+paul5848-Dresden@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
