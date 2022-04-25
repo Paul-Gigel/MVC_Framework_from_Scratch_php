@@ -32,6 +32,20 @@ class Router
     {
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
-        var_dump($method);
+        $callback = $this->routes[$method][$path] ?? false;
+        if ($callback === false)    {
+            return "not found";
+            exit;
+        }
+        if (is_string($callback))   {
+            return $this->renderView($callback);
+        }
+        return call_user_func($callback);
+        //var_dump($this->routes);
+    }
+
+    public function renderView($view)   //$view = $callback
+    {
+        include_once __DIR__."/../views/$view.php";
     }
 }
