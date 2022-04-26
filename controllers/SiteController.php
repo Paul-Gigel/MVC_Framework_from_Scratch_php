@@ -2,22 +2,23 @@
 namespace app\controllers;
 
 use app\core\Application;
+use app\core\Controller;
 
-class SiteController
+class SiteController extends Controller
 {
     public static function home(): string
     {
         $params = [
             'name' => "Paul Gigel"
         ];
-        return Application::$app->router->renderView('home', $params);
+        return self::render('home', $params);
     }
     public static function contact(): string
     {
-        return Application::$app->router->renderView('contact');
+        return self::render('contact');
     }
     public static function handleContact(): string
     {
-        return Application::$app->router->renderView('contact');
+        return self::render('contact');
     }
 }

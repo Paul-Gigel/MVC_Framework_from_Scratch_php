@@ -39,6 +39,7 @@ class Router
         if (is_string($callback))   {
             return $this->renderView($callback);
         }
+        echo "bot a string";
         return call_user_func($callback);
     }
 
@@ -75,7 +76,6 @@ class Router
         foreach ($params as $key => $value)   {
             $$key = $value;
         }
-        //var_dump($name);
         ob_start();
         include_once Application::$ROOT_DIR."/views/$view.php";
         return ob_get_clean();
