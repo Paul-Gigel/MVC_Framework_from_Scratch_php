@@ -30,7 +30,7 @@ class Router
     public function resolve()
     {
         $path = $this->request->getPath();
-        $method = $this->request->getMethod();
+        $method = $this->request->method();
         $callback = $this->routes[$method][$path] ?? false;
         if ($callback === false)    {
             $this->response->setStatusCode(404);
@@ -40,7 +40,7 @@ class Router
             return $this->renderView($callback);
         }
         echo "bot a string";
-        return call_user_func($callback);
+        return call_user_func($callback, $this->request);
     }
 
     public function renderView($view, $params =[])
