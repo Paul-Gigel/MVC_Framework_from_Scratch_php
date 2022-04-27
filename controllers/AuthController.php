@@ -7,15 +7,16 @@ use app\core\Request;
 
 class AuthController extends Controller
 {
-    public static function login() {
-        self::setLayout('auth');
-        return self::render('login');
+    public function login() {
+        $this->setLayout('auth');
+        return $this->render('login');
     }
-    public static function register(Request $request)  {
+    public function register(Request $request)  {
         if ($request->isPost()) {
+            $register = new RegisterModel();
             return 'Handle submitted data';
         }
-        self::setLayout('auth');
-        return self::render('register');
+        $this->setLayout('auth');
+        return $this->render('register');
     }
 }

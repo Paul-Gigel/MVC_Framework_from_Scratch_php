@@ -8,21 +8,21 @@ use app\core\Response;
 
 class SiteController extends Controller
 {
-    public static function home(): string
+    public function home(): string
     {
         $params = [
             'name' => "Paul Gigel"
         ];
-        return self::render('home', $params);
+        return $this->render('home', $params);
     }
-    public static function contact(): string
+    public function contact(): string
     {
-        return self::render('contact');
+        return $this->render('contact');
     }
-    public static function handleContact(Request $request): string
+    public function handleContact(Request $request): string
     {
         $body = $request->getBody();
         var_dump($body);
-        return self::render('contact');
+        return $this->render('contact');
     }
 }

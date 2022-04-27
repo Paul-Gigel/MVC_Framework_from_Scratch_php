@@ -13,7 +13,7 @@ class Request
         }
         return substr($path, 0, $position);
     }
-    public function method()
+    public function method(): string
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
@@ -25,7 +25,7 @@ class Request
     {
         return $this->method() === 'post';
     }
-    public function getBody()
+    public function getBody(): array
     {
         $body =[];
         if ($this->method() ==='get')    {
