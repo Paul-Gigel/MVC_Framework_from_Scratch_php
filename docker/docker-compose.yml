@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: personalwebsite-app
+    restart: always
+    working_dir: /var/www/
+    volumes:
+      - ../../MVC_Framework_from_Scratch_php:/var/www
+  nginx:
+    image: nginx:1.19-alpine
+    container_name: personalwebsite-nginx
+    restart: always
+    ports:
+      - 8000:80
+    volumes:
+      - ../../MVC_Framework_from_Scratch_php:/var/www
+      - ./nginx:/etc/nginx/conf.d
+  db:
+    image: mysql:5.7
+    container_name: personalwebsite-db
+    environment:
+      MYSQL_ROOT_PASSWORD: aA1234Aa
+      MYSQL_DATABASE: app_db
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_user_pass
+    ports:
+      - "6033:3306"
+    volumes:
+      - ../runtime/dbdata:/var/lib/mysql
+volumes:
+  dbdata:
+
+
+  #docker exec -it personalwebsite-db  mysql -uroot -p 
