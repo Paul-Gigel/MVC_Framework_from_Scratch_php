@@ -16,7 +16,7 @@ class Field
 
     public function __construct(Model $model, string $attribute)
     {
-        $this->type = self::TYPE_PASSWORD;
+        $this->type = self::TYPE_TEXT;
         $this->model = $model;
         $this->attribute = $attribute;
     }
