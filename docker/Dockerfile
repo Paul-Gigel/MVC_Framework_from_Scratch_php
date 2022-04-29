@@ -5,5 +5,10 @@ RUN apt-get update && apt-get install -y \
     curl    \
     zip     \
     unzip   \
-    mysql-server
+    nano
+RUN set -ex \
+    docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
+    && docker-php-ext-install pdo pdo_mysql \
+    && docker-php-ext-enable pdo pdo_mysql
+#RUN mv /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 WORKDIR /var/www

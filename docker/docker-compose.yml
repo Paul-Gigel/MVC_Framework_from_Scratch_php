@@ -21,7 +21,7 @@ services:
       - ./nginx:/etc/nginx/conf.d
   db:
     image: mysql:5.7
-    container_name: personalwebsite-db
+    container_name: app-db
     environment:
       MYSQL_ROOT_PASSWORD: aA1234Aa
       MYSQL_DATABASE: app_db
@@ -35,4 +35,6 @@ volumes:
   dbdata:
 
 
-  #docker exec -it personalwebsite-db  mysql -uroot -p 
+  #docker exec -it personalwebsite-db  mysql -uroot -p
+  # /var/run/mysqld/mysqld.sock
+  #/usr/local/etc/php
