@@ -29,14 +29,16 @@ class Database
             require_once Application::$ROOT_DIR.'/migrations/'.$migration;
             $className = pathinfo($migration,PATHINFO_FILENAME);
             $instance = new $className;
+            $this->log("Applying migration $migration");
             $instance->up();
+            $this->log("Applied migration $migration");
             $newMigrations[] = $migration;
         }
 
         if (!empty($newMigrations)) {
             $this->saveMigrations($newMigrations);
         } else {
-            echo "All migrations are applied";
+            $this->log("All migrations are applied");
         }
     }
 
@@ -60,6 +62,10 @@ class Database
     {
         $str = implode(",", array_map(fn($m) => "('$m')", $migrations));
         $statement = $this->pdo->prepare("INSERT INTO migrations (migration) VALUES $str");
-        var_dump($statement);
+        $statement->execute();
+    }
+    protected function log($message)
+    {
+        echo '['.date('Y-m-d H:i:s').'] - '.$message.PHP_EOL;
     }
 }
