@@ -16,16 +16,34 @@ class Database
     public function applyMigrations()
     {
         $this->createMigrationTable();
-        $this->getAppliedMigrations();
+        $appliedMigrations = $this->getAppliedMigrations();
 
+        $newMigrations = [];
         $files = scandir(Application::$ROOT_DIR.'/migrations');
-        var_dump($files);
+        $toApplyMigrations = array_diff($files, $appliedMigrations);
+        foreach ($toApplyMigrations as $migration)  {
+            if ($migration === '.' || $migration === '..')  {
+                continue;
+            }
+
+            require_once Application::$ROOT_DIR.'/migrations/'.$migration;
+            $className = pathinfo($migration,PATHINFO_FILENAME);
+            $instance = new $className;
+            $instance->up();
+            $newMigrations[] = $migration;
+        }
+
+        if (!empty($newMigrations)) {
+            $this->saveMigrations($newMigrations);
+        } else {
+            echo "All migrations are applied";
+        }
     }
 
     public function createMigrationTable()
     {
         $this->pdo->exec("CREATE TABLE IF NOT EXISTS migrations (
-        id INT AUTO_INCRAMENT PRIMARY KEY,
+        id INT AUTO_INCREMENT PRIMARY KEY,
         migration VARCHAR(255),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
     ) ENGINE=INNODB;");
@@ -36,5 +54,12 @@ class Database
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_COLUMN);
+    }
+
+    public function saveMigrations(array $migrations)
+    {
+        $str = implode(",", array_map(fn($m) => "('$m')", $migrations));
+        $statement = $this->pdo->prepare("INSERT INTO migrations (migration) VALUES $str");
+        var_dump($statement);
     }
 }

@@ -21,7 +21,9 @@ services:
       - ./nginx:/etc/nginx/conf.d
   db:
     image: mysql:5.7
-    container_name: mvc-db
+    #gibt zoff
+    container_name: mvc_db
+    #gibt zoff
     environment:
       MYSQL_ROOT_PASSWORD: aA1234Aa
       MYSQL_DATABASE: mvc-db
