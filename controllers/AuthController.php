@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use app\core\Controller;
 use app\core\Request;
-use app\models\RegisterModel;
+use app\models\User;
 
 class AuthController extends Controller
 {
@@ -13,7 +13,7 @@ class AuthController extends Controller
         return $this->render('login');
     }
     public function register(Request $request)  {
-        $registerModel = new RegisterModel();
+        $registerModel = new User();
         if ($request->isPost()) {
             $registerModel->loadData($request->getBody());
              //var_dump($registerModel);
