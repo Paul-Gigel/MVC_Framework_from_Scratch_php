@@ -6,7 +6,8 @@ use \app\controllers\AuthController;
 require_once __DIR__ . '/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
-#var_dump($_ENV);
+// Application line 29
+session_start();
 $config = [
     'db' => [
         'dsn' => $_ENV['DB_DSN'],
@@ -27,4 +28,3 @@ $app->router->post('/register', [AuthController::class, 'register']);
 
 
 $app->run();
-?>

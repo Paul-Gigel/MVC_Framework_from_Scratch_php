@@ -20,7 +20,10 @@ class AuthController extends Controller
              //var_dump($user);
             if($user->validate() && $user->save())    {
                 // header('Location: /'); /*das ist die einfache lösung*/
+
+                Application::$app->session->setFlash('success', 'Thanks for registering');
                 Application::$app->response->redirect('/');
+                exit;
             }
 
             return $this->render("register",[
