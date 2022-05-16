@@ -15,6 +15,7 @@ class Session
             $flashMessage['remove'] = true;
         }
         $_SESSION[self::FLASH_KEY] = $flashMessages;
+        print "constructed";
     }
     public function setFlash($key, $message)
     {
@@ -31,18 +32,14 @@ class Session
     }
     public function __destruct()
     {
-        var_dump($_SESSION);
-        //interate over marked to be removed and remove
         $flashMessages = $_SESSION[self::FLASH_KEY] ?? [];
         foreach ($flashMessages as $key => &$flashMessage)
         {
-            //mark to be removed
-            if ($flashMessage['remove'] = true) {
+            if ($flashMessage['remove']) {
                 unset($flashMessage[$key]);
             }
 
         }
         $_SESSION[self::FLASH_KEY] = $flashMessages;
-        var_dump($_SESSION);
     }
 }
