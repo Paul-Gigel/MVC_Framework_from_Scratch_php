@@ -1,4 +1,6 @@
-<?php use \app\core\Application; ?>
+<?php use \app\core\Application;
+var_dump(Application::$app->user ?? null);
+?>
 <!doctype html>
 <html lang="en">
 <head>

@@ -15,9 +15,13 @@ class User extends DbModel
     public int $status = self::STATUS_INACTIVE;
     public string $password = '';
     public string $confirmPassword = '';
-    public function tableName(): string
+    public static function tableName(): string
     {
         return 'users';
+    }
+    public function primaryKey(): string
+    {
+        return 'id';
     }
 
     public function save()
