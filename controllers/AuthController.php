@@ -16,8 +16,8 @@ class AuthController extends Controller
         if ($request->isPost()) {
             $loginForm->loadData($request->getBody());
             if ($loginForm->validate() && $loginForm->login())  {
-                $response->redirect('/');
-                return ;
+                 $response->redirect('/');
+                 exit;
             }
         }
         $this->setLayout('auth');
@@ -47,5 +47,10 @@ class AuthController extends Controller
         ]);
         $this->setLayout('auth');
         return $this->render('register');
+    }
+    public function logout(Request $request, Response $response)
+    {
+        Application::$app->logout();
+        $response->redirect('/');
     }
 }

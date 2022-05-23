@@ -14,7 +14,7 @@ class Application
     public Response $response;
     public Session $session;
     public Database $db;
-    public ?DbModel $user;
+    public ?DbModel $user = null;
 
     public static Application $app;
     public Controller $controller;
@@ -33,7 +33,13 @@ class Application
         if ($primaryValue) {
             $primaryKey = $this->userClass::primaryKey();
             $this->user = $this->userClass::findOne([$primaryKey => $primaryValue]);
+        }   else    {
+            $this->user = null;
         }
+    }
+    public static function isGuest()
+    {
+        return !self::$app->user;
     }
     public function run()
     {
@@ -56,7 +62,7 @@ class Application
     {
         $this->controller = $controller;
     }
-    public function login(DbModel $user)
+    public function login(DbModel $user): bool
     {
         $this->user = $user;
         $primaryKey = $user->primaryKey();

@@ -22,7 +22,7 @@ class SiteController extends Controller
     public function handleContact(Request $request): string
     {
         $body = $request->getBody();
-        var_dump($body);
+        //var_dump($body);
         return $this->render('contact');
     }
 }
