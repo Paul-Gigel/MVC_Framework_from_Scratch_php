@@ -40,6 +40,11 @@ var_dump(Application::$app->user );
             </ul>
             <?php else  : ?>
             <ul class="navbar-nav ml-auto >
+               <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/profile">
+                        Profile
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/logout">Welcome <?php echo Application::$app->user->getDisplayName();?>
                         (Logout)
