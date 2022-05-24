@@ -27,8 +27,8 @@ class Controller
         $this->middlewares = $middleware;
     }
 
-    public function getMiddlewares(): array
+    public function getMiddlewares()
     {
-        return $this->middlewares;
+        return $this->middlewares ?? [];
     }
 }

@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+use app\controllers\SiteController;
+
 class Router
 {
     public Request $request;
@@ -46,12 +48,15 @@ class Router
              */
             $controller = new $callback[0]();
             Application::$app->controller = $controller;
-            var_dump($callback);
-            $controller->action = $callback[1]();
+            $controller->action = [$controller,$callback[1]]();   //<- da , Problema
             foreach ($controller->getMiddlewares() as $middleware)  {
+                var_dump($middleware);
                 $middleware->execute();
             }
             $callback[0] = $controller;
+            /*
+             *
+             */
         }
         return call_user_func($callback, $this->request, $this->response);
     }
