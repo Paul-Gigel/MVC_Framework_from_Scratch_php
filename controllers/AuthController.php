@@ -15,6 +15,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->registerMiddleware(new AuthMiddleware(['profile'])); //new AuthMiddleware(['profile'])
+        //$this->registerMiddleware(new AuthMiddleware(['kackboon']));
     }
 
     public function login(Request $request, Response $response) {
@@ -60,6 +61,10 @@ class AuthController extends Controller
         $response->redirect('/');
     }
     public function profile()
+    {
+        return $this->render('profile');
+    }
+    public function kackboon()
     {
         return $this->render('profile');
     }

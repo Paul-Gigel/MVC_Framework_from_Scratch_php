@@ -24,6 +24,7 @@ class Controller
     public function registerMiddleware(BaseMiddleware $middleware)
     {
         //var_dump($middleware);
+        //array_push($this->middlewares, $middleware);
         $this->middlewares = $middleware;
     }
 
