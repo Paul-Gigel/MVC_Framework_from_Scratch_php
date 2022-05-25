@@ -27,7 +27,7 @@ class Controller
         $this->middlewares = $middleware;
     }
 
-    public function getMiddlewares()
+    public function getMiddlewares():mixed
     {
         return $this->middlewares ?? [];
     }
