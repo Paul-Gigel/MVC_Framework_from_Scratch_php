@@ -7,7 +7,7 @@ use app\core\exception\ForbiddenExeption;
 
 class AuthMiddleware extends BaseMiddleware
 {
-    public array $actions = [];
+    public array $actions = []; //profile
     public function __construct(array $actions = [])
     {
         $this->actions = $actions;

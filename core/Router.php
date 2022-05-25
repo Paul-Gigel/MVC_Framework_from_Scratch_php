@@ -4,7 +4,7 @@ namespace app\core;
 
 use app\controllers\AuthController;
 use app\controllers\SiteController;
-use app\core\middlewares\AuthMiddleware;
+use app\core\middlewares\AuthMiddleware; 
 use app\core\middlewares\BaseMiddleware;
 
 class Router
@@ -49,12 +49,11 @@ class Router
             /**
              * @var Controller $controller
              */
-            Application::$app->controller = new $callback[0]();
-            Application::$app->controller->action = $callback[1];   //<- da , Problema
+            Application::$app->controller = new $callback[0](); // Authcontroller::class oder Sitecontroller::class
+            Application::$app->controller->action = $callback[1];   // 
             $callback[0] = Application::$app->controller;
-            var_dump($callback[0]);
-            foreach (Application::$app->controller->getMiddlewares() as $middleware)  {
-                $middleware->execute();
+            foreach (Application::$app->controller->getMiddlewares() as  $middleware)  {
+                Application::$app->controller->getMiddlewares()->execute();
             }
             /*
              *
