@@ -62,6 +62,7 @@ class AuthController extends Controller
     }
     public function profile()
     {
+
         return $this->render('profile');
     }
     public function kackboon()
