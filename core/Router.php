@@ -4,7 +4,9 @@ namespace app\core;
 
 use app\controllers\AuthController;
 use app\controllers\SiteController;
-use app\core\middlewares\AuthMiddleware; 
+use app\core\exception\ForbiddenExeption;
+use app\core\exception\NotFoundException;
+use app\core\middlewares\AuthMiddleware;
 use app\core\middlewares\BaseMiddleware;
 
 class Router
@@ -39,7 +41,7 @@ class Router
         $callback = $this->routes[$method][$path] ?? false;
         if ($callback === false)    {
             $this->response->setStatusCode(404);
-            return $this->renderView("_404");
+            throw new NotFoundException();
         }
         if (is_string($callback))   {
             return $this->renderView($callback);
