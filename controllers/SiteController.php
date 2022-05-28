@@ -1,10 +1,10 @@
 <?php
 namespace app\controllers;
 
-use app\core\Application;
-use app\core\Controller;
-use app\core\Request;
-use app\core\Response;
+use paul_core\paul_core\Application;
+use paul_core\paul_core\Controller;
+use paul_core\paul_core\Request;
+use paul_core\paul_core\Response;
 use app\models\ContactForm;
 
 class SiteController extends Controller

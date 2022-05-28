@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use app\core\Model;
+use paul_core\paul_core\Model;
 
 class ContactForm extends Model
 {

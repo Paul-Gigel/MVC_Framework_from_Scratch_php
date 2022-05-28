@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "455b41419da577f7d75e22439f29e12e",
+    "content-hash": "4a3bd4e105969dbe70df65677821f4fa",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -67,6 +67,40 @@
                 }
             ],
             "time": "2021-11-21T21:41:47+00:00"
+        },
+        {
+            "name": "paul_core/paul_core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paul5848-Dresden/paul_core.git",
+                "reference": "7e5fe6881d37f095ac23a9a71b203c9cfadf846f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paul5848-Dresden/paul_core/zipball/7e5fe6881d37f095ac23a9a71b203c9cfadf846f",
+                "reference": "7e5fe6881d37f095ac23a9a71b203c9cfadf846f",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "paul_core\\paul_core\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Paul Gigel",
+                    "email": "91072840+paul5848-Dresden@users.noreply.github.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/paul5848-Dresden/paul_core/issues",
+                "source": "https://github.com/paul5848-Dresden/paul_core/tree/v0.1.1"
+            },
+            "time": "2022-05-28T13:23:17+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -471,7 +505,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "paul_core/paul_core": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

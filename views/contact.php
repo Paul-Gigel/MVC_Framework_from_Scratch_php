@@ -1,11 +1,11 @@
 <?php
 /**
- * @var $this \app\core\View
+ * @var $this \paul_core\paul_core\View
  * @var $model \app\models\ContactForm
  */
 
-use app\core\form\Form;
-use app\core\form\TextareaField;
+use paul_core\paul_core\form\Form;
+use paul_core\paul_core\form\TextareaField;
 
 $this->title = 'contact'
 ?>

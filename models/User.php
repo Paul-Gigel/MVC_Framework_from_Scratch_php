@@ -1,8 +1,8 @@
 <?php
 namespace app\models;
-use app\core\DbModel;
-use app\core\Model;
-use app\core\UserModel;
+use paul_core\paul_core\DbModel;
+use paul_core\paul_core\Model;
+use paul_core\paul_core\UserModel;
 
 class User extends UserModel
 {

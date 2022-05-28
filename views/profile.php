@@ -1,6 +1,6 @@
 <?php
 /**
- * @var $this \app\core\View
+ * @var $this \paul_core\paul_core\View
  */
 $this->title = 'profile'
 ?>

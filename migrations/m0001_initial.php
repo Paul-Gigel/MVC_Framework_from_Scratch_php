@@ -1,7 +1,7 @@
 <?php
 class m0001_initial {
     public function up()    {
-        $db = \app\core\Application::$app->db;
+        $db = \paul_core\paul_core\Application::$app->db;
         $SQL = "CREATE TABLE users (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 email VARCHAR(255) NOT NULL,
@@ -13,7 +13,7 @@ class m0001_initial {
         $db->pdo->exec($SQL);
     }
     public function down()  {
-        $db = \app\core\Application::$app->db;
+        $db = \paul_core\paul_core\Application::$app->db;
         $SQL = "CREATE TABLE users;";
         $db->pdo->exec($SQL);
     }

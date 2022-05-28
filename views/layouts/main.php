@@ -1,4 +1,4 @@
-<?php use \app\core\Application;
+<?php use \paul_core\paul_core\Application;
 //var_dump($this);
 ?>
 <!doctype html>

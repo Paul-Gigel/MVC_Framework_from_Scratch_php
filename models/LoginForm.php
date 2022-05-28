@@ -2,8 +2,8 @@
 
 namespace app\models;
 
-use app\core\Application;
-use app\core\Model;
+use paul_core\paul_core\Application;
+use paul_core\paul_core\Model;
 
 class LoginForm extends Model
 {

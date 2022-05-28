@@ -2,11 +2,11 @@
 
 namespace app\controllers;
 
-use app\core\Application;
-use app\core\Controller;
-use app\core\middlewares\AuthMiddleware;
-use app\core\Request;
-use app\core\Response;
+use paul_core\paul_core\Application;
+use paul_core\paul_core\Controller;
+use paul_core\paul_core\middlewares\AuthMiddleware;
+use paul_core\paul_core\Request;
+use paul_core\paul_core\Response;
 use app\models\LoginForm;
 use app\models\User;
 
